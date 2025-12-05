@@ -1,0 +1,1282 @@
+<meta charset="utf-8" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<title></title>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" /><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js">
+</script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script><script>
+alert("Its Mandatory to watch all videos before proceeding further");
+function blockSpecialChar(e)
+        {
+          var k = e.keyCode;5
+            return (k == 8   || (k >= 48 && k <= 57)|| k==46);
+         }
+    
+ $(document).ready(function()
+  {
+  $("#prefix").keypress(function (e) {
+    var k = e.keyCode;
+            return (k == 8   || (k >= 48 && k <= 57)|| k==46);
+            auto
+         })})
+
+$(document).ready(function()
+  {
+  $("#prefix1").keypress(function (e) {
+    var k = e.keyCode;
+            return (k == 8   || (k >= 48 && k <= 57)|| k==46);
+            
+         })})
+  
+    $(document).ready(function() {
+    $('#phone').bind("cut copy paste", function(e) {
+        e.preventDefault();
+         alert("Kindly do not copy paste the phone number.");
+        $('#phone').bind("contextmenu", function(e) {
+            e.preventDefault();
+        });
+    });
+});
+
+let keyPressed = true
+function onKeyDown(event) {
+    if(keyPressed && event.keyCode !== 8)
+      {
+        keyPressed = false;
+        let oldvalue = document.getElementById('prefix').value;
+        document.getElementById('prefix').value = "-"+oldvalue
+      }
+
+    if(!document.getElementById('prefix').value)
+      {
+        keyPressed = true;
+      }
+     }
+
+function onKeyDown1(event) {
+    if(keyPressed && event.keyCode !== 8)
+      {
+        keyPressed = false;
+        let oldvalue = document.getElementById('prefix1').value;
+        document.getElementById('prefix1').value = "-"+oldvalue
+      }
+
+    if(!document.getElementById('prefix1').value)
+      {
+        keyPressed = true;
+      }
+     }
+
+
+
+
+    document.addEventListener('paste', function (event) {
+    let targetElement = event.target;
+    if (
+            (targetElement.tagName.toLowerCase() === 'crowd-input' && targetElement.id === 'prefix') ||
+            (targetElement.tagName.toLowerCase() === 'crowd-input' && targetElement.id === 'prefix1') ||
+            (targetElement.tagName.toLowerCase() === 'crowd-input' && targetElement.id === 'latitude')
+        ) {
+            event.preventDefault();
+            alert("You cannot paste into this text field.");
+        }
+    });
+  $(document).ready(function()
+  {
+  $(".phone-format").keypress(function (e) {
+    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      return false;
+    }
+    var curchr = this.value.length;
+    var curval = $(this).val();
+    if (curchr == 3 && curval.indexOf("(") <= -1) {
+      $(this).val("(" + curval + ")" + " ");
+    } else if (curchr == 4 && curval.indexOf("(") > -1) {
+      $(this).val(curval + ")-");
+    } else if (curchr == 5 && curval.indexOf(")") > -1) {
+      $(this).val(curval + "-");
+    } else if (curchr == 9) {
+      $(this).val(curval + "-");
+      $(this).attr('maxlength', '14');
+    }
+  });
+});
+
+function mall_timings_1(select){
+   if(select.value=='yes')
+   {
+    document.getElementById('mall_weekdays').style.display = "block";
+    document.getElementById("mallsundayopens").value = "";
+  document.getElementById("mallmondayopens").value = "";
+  document.getElementById("malltuesdayopens").value = "";
+  document.getElementById("mallwednesdayopens").value = "";
+  document.getElementById("mallthursdayopens").value = "";
+  document.getElementById("mallfridayopens").value = "";
+  document.getElementById("mallsaturdayopens").value = "";
+  document.getElementById("mallsundayclose").value = "";
+  document.getElementById("mallmondayclose").value = "";
+  document.getElementById("malltuesdayclose").value = "";
+  document.getElementById("mallwednesdayclose").value = "";
+  document.getElementById("mallthursdayclose").value = "";
+  document.getElementById("mallfridayclose").value = "";
+  document.getElementById("mallsaturdayclose").value = "";
+   } else 
+   { 
+  document.getElementById('mall_weekdays').style.display = "block";
+  document.getElementById("mallsundayopens").value = document.getElementById("storesundayopens").value;
+  document.getElementById("mallmondayopens").value = document.getElementById("storemondayopens").value;
+  document.getElementById("malltuesdayopens").value = document.getElementById("storetuesdayopens").value;
+  document.getElementById("mallwednesdayopens").value = document.getElementById("storewednesdayopens").value;
+  document.getElementById("mallthursdayopens").value = document.getElementById("storethursdayopens").value;
+  document.getElementById("mallfridayopens").value = document.getElementById("storefridayopens").value;
+  document.getElementById("mallsaturdayopens").value = document.getElementById("storesaturdayopens").value;
+  document.getElementById("mallsundayclose").value = document.getElementById("storesundayclose").value;
+  document.getElementById("mallmondayclose").value = document.getElementById("storemondayclose").value;
+  document.getElementById("malltuesdayclose").value = document.getElementById("storetuesdayclose").value;
+  document.getElementById("mallwednesdayclose").value = document.getElementById("storewednesdayclose").value;
+  document.getElementById("mallthursdayclose").value = document.getElementById("storethursdayclose").value;
+  document.getElementById("mallfridayclose").value = document.getElementById("storefridayclose").value;
+  document.getElementById("mallsaturdayclose").value = document.getElementById("storesaturdayclose").value;
+   }
+} 
+
+function myFunction(event) 
+{
+console.log(event.target.value)
+if (event.target.value === "NO") 
+{
+  document.getElementById("malladdress1").value = document.getElementById("storeaddress1").value;
+  document.getElementById("malladdress2").value = document.getElementById("storeaddress2").value;
+  document.getElementById("malladdress3").value = document.getElementById("storeaddress3").value;
+  document.getElementById("mallstate").value = document.getElementById("storestate").value;
+  document.getElementById("mallzipcode").value = document.getElementById("storezipcode").value;
+  document.getElementById("malltimezone").value = document.getElementById("storetimezone").value;
+  document.getElementById("malldate").value = document.getElementById("storedate").value;
+}
+
+else 
+{
+  document.getElementById("malladdress1").value = "";
+  document.getElementById("malladdress2").value = "";
+  document.getElementById("mallstate").value = "";
+  document.getElementById("mallzipcode").value = "";
+  document.getElementById("malltimezone").value = "";
+  document.getElementById("malldate").value = "";
+  document.getElementById("mallsundayopens").value = "";
+  document.getElementById("mallmondayopens").value = "";
+  document.getElementById("malltuesdayopens").value = "";
+  document.getElementById("mallwednesdayopens").value = "";
+  document.getElementById("mallthursdayopens").value = "";
+  document.getElementById("mallfridayopens").value = "";
+  document.getElementById("mallsaturdayopens").value = "";
+  document.getElementById("mallsundayclose").value = "";
+  document.getElementById("mallmondayclose").value = "";
+  document.getElementById("malltuesdayclose").value = "";
+  document.getElementById("mallwednesdayclose").value = "";
+  document.getElementById("mallthursdayclose").value = "";
+  document.getElementById("mallfridayclose").value = "";
+  document.getElementById("mallsaturdayclose").value = "";
+
+}
+
+  var ddlPassport = document.getElementById("yesno");
+  var dvPassport = document.getElementById("malllink");
+  dvPassport.style.display = ddlPassport.value == "Yes" ? "block" : "none";       
+}
+function generateHTMLPage() {
+    const htmlPage = document.implementation.createHTMLDocument("Instructions");
+    const head = htmlPage.getElementsByTagName("head")[0];
+    const titleElement = htmlPage.createElement("title");
+    titleElement.textContent = "Instructions";
+    head.appendChild(titleElement);
+    const linkElement = htmlPage.createElement("link");
+    linkElement.setAttribute("rel", "stylesheet");
+    linkElement.setAttribute("crossorigin", "anonymous");
+    linkElement.setAttribute("href", "https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css");
+    linkElement.setAttribute("integrity", "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm");
+    head.appendChild(linkElement);
+    const styleElement = htmlPage.createElement("style");
+    styleElement.textContent = `
+        body, html {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        .container {
+            padding: 20px;
+            
+            background-color: white;
+            text-align: justify;
+        }
+    `;
+    head.appendChild(styleElement);
+    const body = htmlPage.getElementsByTagName("body")[0];
+    const container = htmlPage.createElement("div");
+    container.classList.add("container");
+    body.appendChild(container);
+    const contentContainer = htmlPage.createElement("div");
+    contentContainer.id = "instructionContentContainer";
+    container.appendChild(contentContainer);
+
+    return htmlPage;
+}
+
+function openInstructionInNewWindow(instructionContent) {
+    const newWindow = window.open('', '_blank');
+    const htmlPage = generateHTMLPage();
+    newWindow.document.write(htmlPage.documentElement.outerHTML);
+    newWindow.document.close();
+    const instructionContentContainer = newWindow.document.getElementById("instructionContentContainer");
+    instructionContentContainer.innerHTML = instructionContent.innerHTML;
+}
+
+
+
+const airport_code = document.getElementById('airport-code-input');
+
+airport_code.addEventListener('input', function() {
+  let value = this.value.toUpperCase();
+  value = value.replace(/[^A-Z]/g, '');
+  value = value.substring(0, 3);
+  this.value = value;
+});
+
+</script><!-- You must include this JavaScript file --><script src="https://assets.crowd.aws/crowd-html-elements.js">
+
+</script>
+<style type="text/css">select {
+     margin-bottom: 10px;
+     margin-top: 10px;
+   }
+   .sunday
+   {
+		border: 1px solid grey;
+		text-align: left;
+		padding: 5px;
+	}
+    .monday
+   {
+		border: 1px solid grey;
+		text-align: left;
+		padding: 5px;
+	}
+    .tuesday
+   {
+		border: 1px solid grey;
+		text-align: left;
+		padding: 5px;
+	}
+    .wednesday
+   {
+		border: 1px solid grey;
+		text-align: left;
+		padding: 5px;
+	}
+    .thursday
+   {
+		border: 1px solid grey;
+		text-align: left;
+		padding: 5px;
+	}
+    .friday
+   {
+		border: 1px solid grey;
+		text-align: left;
+		padding: 5px;
+	}
+    .saturday
+   {
+		border: 1px solid grey;
+		text-align: left;
+		padding: 5px;
+	}
+    .inflow
+   {
+		border: 1px solid grey;
+		text-align: left;
+		padding: 10px;
+	}
+
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<crowd-form answer-format="flatten-objects">
+<div class="container-fluid">
+<div class="panel panel-default">
+<div class="alert alert-danger"><button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>Carefully read the instructions before you start working on this HIT.<br />
+Please be aware that all work is audited and workers with a high rejection rate will be blocked from all our future HITs.</div>
+</div>
+
+<div class="container-fluid">Instructions: <b style="color:red">Please go through complete instruction before starting with the HIT <b style="color:rgb(3, 56, 180)">(Please use compatible browser - Google Chrome).</b></b><br />
+&nbsp;
+<div class="panel panel-default">
+<div class="panel-heading" style="text-align: center;"><font size="5"><b>STORE</b></font></div>
+
+<div class="panel-body">
+<h5>The HIT requires to collect few basic information like Address line 1 &amp; 2 , State, Postal code, Phone number, Time Zone, Date of collection,Operating hours, Email Address from official Brand websites. Please ensure to collect all 8 required information.</h5>
+
+<div class="alert alert-danger" style="text-align: center;"><button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>Do not collect data&rsquo;s from google</div>
+
+<div>
+<div class="Inflow">
+<p><b>Store website link:</b><a href="${store_link}" target="_blank"><b> ${store_link}</b></a></p>
+
+<p><b>Store name:</b> ${store_name}</p>
+
+<p><b>Mall name:</b> ${mall_name}</p>
+
+<p><b>State</b>: ${state}</p>
+
+<p><b>City</b>: ${city}</p>
+
+<p><b>Zip-code</b>: ${zip_code }</p>
+
+<p><b>Country-code</b>: ${country_code}</p>
+</div>
+&nbsp;
+
+<div>
+<div>
+<p><b>Name of the Store/Brand:</b></p>
+<crowd-input id="brandname" name="01. Brand Name" placeholder="" readonly="readonly" value="${store_name}"> </crowd-input></div>
+&nbsp;
+
+<div>
+<p><b>Store Address:</b> <a href="#" onclick="openInstructionInNewWindow(storeaddressInstructions);">Click here for Address instructions</a></p>
+
+<p><crowd-input autocomplete="off" id="storeaddress1" name="03. Store Address Line 1" placeholder="Address Line 1" required=""></crowd-input></p>
+
+<p><crowd-input autocomplete="off" id="storeaddress2" name="04. Store Address Line 2" placeholder="Address Line 2(optional)"></crowd-input></p>
+
+<p><crowd-input autocomplete="off" id="storeaddress3" name="05. Store Address Line 3" placeholder="Address Line 3(optional)"></crowd-input></p>
+
+<p><b>Store - City:</b></p>
+
+<p><crowd-input name="06. Store City" placeholder="" readonly="readonly" value="${city}"></crowd-input></p>
+
+<p><b>Store - State Or Region Abbreviation : </b> <select autocomplete="off" id="storestate" name="07. Store State" required=""><option value=""></option><option value="AL - Alabama">AL - Alabama</option><option value="AK - Alaska">AK - Alaska</option><option value="AZ - Arizona">AZ - Arizona</option><option value="AR - Arkansas">AR - Arkansas</option><option value="CA - California">CA - California</option><option value="CO - Colorado">CO - Colorado</option><option value="CT - Connecticut">CT - Connecticut</option><option value="DE - Delaware">DE - Delaware</option><option value="DC - District of Columbia">DC - District of Columbia</option><option value="FL - Florida">FL - Florida</option><option value="GA - Georgia">GA - Georgia</option><option value="HI - Hawaii">HI - Hawaii</option><option value="ID - Idaho">ID - Idaho</option><option value="IL - Illinois">IL - Illinois</option><option value="IN - Indiana">IN - Indiana</option><option value="IA - Iowa">IA - Iowa</option><option value="KS - Kansas">KS - Kansas</option><option value="KY - Kentucky">KY - Kentucky</option><option value="LA - Louisiana">LA - Louisiana</option><option value="ME - Maine">ME - Maine</option><option value="MD - Maryland">MD - Maryland</option><option value="MA - Massachusetts">MA - Massachusetts</option><option value="MI - Michigan">MI - Michigan</option><option value="MN - Minnesota">MN - Minnesota</option><option value="MS - Mississippi">MS - Mississippi</option><option value="MO - Missouri">MO - Missouri</option><option value="MT - Montana">MT - Montana</option><option value="NE - Nebraska">NE - Nebraska</option><option value="NV - Nevada">NV - Nevada</option><option value="NH - New Hampshire">NH - New Hampshire</option><option value="NJ - New Jersey">NJ - New Jersey</option><option value="NM - New Mexico">NM - New Mexico</option><option value="NY - New York">NY - New York</option><option value="NC - North Carolina">NC - North Carolina</option><option value="ND - North Dakota">ND - North Dakota</option><option value="OH - Ohio">OH - Ohio</option><option value="OK - Oklahoma">OK - Oklahoma</option><option value="OR - Oregon">OR - Oregon</option><option value="PA - Pennsylvania">PA - Pennsylvania</option><option value="RI - Rhode Island">RI - Rhode Island</option><option value="SC - South Carolina">SC - South Carolina</option><option value="SD - South Dakota">SD - South Dakota</option><option value="TN - Tennessee">TN - Tennessee</option><option value="TX - Texas">TX - Texas</option><option value="UT - Utah">UT - Utah</option><option value="VT - Vermont">VT - Vermont</option><option value="VA - Virginia">VA - Virginia</option><option value="WA - Washington">WA - Washington</option><option value="WV - West Virginia">WV - West Virginia</option><option value="WI - Wisconsin">WI - Wisconsin</option><option value="WY - Wyoming">WY - Wyoming</option> </select></p>
+
+<p>Store - Zip / Postal Code: <a href="#" onclick="openInstructionInNewWindow(storezipcodeinstruction);">Click here for Zip / Postal code instructions</a></p>
+
+<p><crowd-input autocomplete="off" id="storezipcode" name="08. Store Postal Code" placeholder="Zip / Postal Code" required=""></crowd-input></p>
+
+<p>USPS Validator link to get complete postal code - <a href="https://tools.usps.com/zip-code-lookup.htm?byaddress" target="_blank">Click here</a></p>
+
+<p><b>Store - Country Code: </b></p>
+
+<p><crowd-input name="09. Store Country Code" placeholder="" readonly="readonly" type="text" value="${country_code}"></crowd-input></p>
+</div>
+&nbsp;
+
+<div>
+<p><b>Store - Phone number:</b> <a href="#" onclick="openInstructionInNewWindow(storephonenumberinstruction);">Click here for Phone number instructions</a></p>
+<input autocomplete="off" class="phone-format" id="phone" name="10. Store Phone Number" placeholder="(000) 000-0000" required="" /></div>
+&nbsp;
+
+<div id="dropdown">
+<p><b>Store - Time Zone:</b> <a href="#" onclick="openInstructionInNewWindow(storetimezoneinstruction);">Click here for Time Zone instructions</a></p>
+<select autocomplete="off" id="storetimezone" name="11. Store Time Zone" required="" value=""><option value=""></option><option value="America/Chicago">America/Chicago</option><option value="America/New_York">America/New_York</option><option value="America/Anchorage">America/Anchorage</option><option value="America/Los_Angeles">America/Los_Angeles</option><option value="America/Denver">America/Denver</option><option value="America/Phoenix">America/Phoenix</option><option value="Pacific/Honolulu">Pacific/Honolulu</option><option value="America/Puerto_Rico">America/Puerto_Rico</option> </select></div>
+&nbsp;
+
+<div>
+<p><b>Store - Latitude:</b> <a href="#" onclick="openInstructionInNewWindow(storelatloninstruction);">Click here for Latitude instructions</a> <a href="https://drive.google.com/uc?export=view&amp;id=1VV-SZxkq9SBxpEyISYXr4DC9aDQVqeSC" target="_blank">Click here for video instruction</a></p>
+
+<p>Note : Kindly update only numbers with decimal places and do not include any special character&rsquo;s (example: 34.83711922) &ndash; latitude should be positive value.</p>
+<crowd-input autocomplete="off" id="latitude" name="12. Store Latitude" onkeypress="return blockSpecialChar(event)" placeholder="Enter a Latitude" required=""></crowd-input></div>
+&nbsp;
+
+<div>
+<p><b>Store - Longitude:</b> <a href="#" onclick="openInstructionInNewWindow(storelatloninstruction);">Click here for Longitude instructions</a> <a href="https://drive.google.com/uc?export=view&amp;id=1VV-SZxkq9SBxpEyISYXr4DC9aDQVqeSC" target="_blank">Click here for video instruction</a></p>
+
+<p>Note : Kindly update only numbers with decimal places and do not include any special character&rsquo;s (example: -87.63560343) &ndash; Longitude should be a negative value.</p>
+<crowd-input autocomplete="off" id="prefix" name="13. Store Longitude" onkeypress="onKeyDown(event)" placeholder="Enter a Longitude" required="" type="text"></crowd-input></div>
+&nbsp;
+
+<div>
+<p><b>Store - Date of collection:</b> <a href="#" onclick="openInstructionInNewWindow(storeoperatinghoursinstructions);">Click here for Date of collection and operating hours instructions</a></p>
+<crowd-input autocomplete="off" id="storedate" name="14. Store Hours Collection Date" required="" type="date" value=""></crowd-input></div>
+
+<div class="weekdays">
+<div class="Sunday">
+<p><b>Hours of operation on Sunday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="storesundayopens" name="15. Store Sunday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="storesundayclose" name="22. Store Sunday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Monday">
+<p><b>Hours of operation on Monday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="storemondayopens" name="16. Store Monday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="storemondayclose" name="23. Store Monday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Tuesday">
+<p><b>Hours of operation on Tuesday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="storetuesdayopens" name="17. Store Tuesday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="storetuesdayclose" name="24. Store Tuesday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Wednesday">
+<p><b>Hours of operation on Wednesday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="storewednesdayopens" name="18. Store Wednesday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="storewednesdayclose" name="25. Store Wednesday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Thursday">
+<p><b>Hours of operation on Thursday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="storethursdayopens" name="19. Store Thursday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="storethursdayclose" name="26. Store Thursday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Friday">
+<p><b>Hours of operation on Friday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="storefridayopens" name="20. Store Friday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="storefridayclose" name="27. Store Friday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Saturday">
+<p><b>Hours of operation on Saturday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="storesaturdayopens" name="21. Store Saturday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="storesaturdayclose" name="28. Store Saturday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+
+<div id="allmalldetails">
+<div>
+<div class="panel-heading" style="text-align: center;"><font size="5"><b>MALL</b></font></div>
+
+<div id="mallname">&nbsp;
+<p><b>Mall name :</b> <a href="#" onclick="openInstructionInNewWindow(mallnamenotspecified);">Click here for instructions</a></p>
+<crowd-input id="mallname1" name="02. Mall Name" placeholder="Enter the Mall Name" required="" value=""> </crowd-input></div>
+&nbsp;
+
+<div>
+<p><b>Is Official Mall Website Available ?</b> <a href="#" onclick="openInstructionInNewWindow(mallnamespecified);">Click here for instructions</a> <i style="color: red;">(The mall&rsquo;s official website will contain the mall name in the website link, If not so do not consider it as official website) </i></p>
+
+<p>Few examples of unofficial website link <a href="https://properties.kimcorealty.com/p/commercial-real-estate-listings/Chino+Hills-CA-91709/118410" target="_blank">Reference 1</a> &amp; <a href="https://www.milbrookproperties.com/north-dover-center" target="_blank">Reference 2</a> These websites mentioned are the property/real estate websites which should not be considered for data collection.</p>
+<select autocomplete="off" id="yesno" onchange="myFunction(event)"><option value=""></option><option id="yes" value="Yes">YES</option><option id="no" value="NO">NO</option> </select></div>
+
+<div id="malllink" style="display: none;">&nbsp;
+<p>Official Mall Website Link:</p>
+<crowd-input autocomplete="off" id="" name="55. Mall Website" placeholder="Provide official mall’s website link" value=""> </crowd-input></div>
+&nbsp;
+
+<div>
+<p><b>Mall - Address:</b> <a href="#" onclick="openInstructionInNewWindow(malladdressinstruction);">Click here for Address instructions</a></p>
+
+<p><crowd-input autocomplete="off" id="malladdress1" name="29. Mall Address Line 1" placeholder="Address Line 1" required=""></crowd-input></p>
+
+<p><crowd-input autocomplete="off" id="malladdress2" name="30. Mall Address Line 2" placeholder="Address Line 2(optional)"></crowd-input></p>
+
+<p><crowd-input autocomplete="off" id="malladdress3" name="31. Mall Address Line 3" placeholder="Address Line 3(Optional)"></crowd-input></p>
+
+<p><b>Mall - City </b></p>
+
+<p><crowd-input name="32. Mall city" placeholder="City" readonly="readonly" value="${city}"></crowd-input></p>
+
+<p><b>Mall - State Or Region Abbreviation : </b> <select autocomplete="off" id="mallstate" name="33. Mall State" required=""><option value=""></option><option value="AL - Alabama">AL - Alabama</option><option value="AK - Alaska">AK - Alaska</option><option value="AZ - Arizona">AZ - Arizona</option><option value="AR - Arkansas">AR - Arkansas</option><option value="CA - California">CA - California</option><option value="CO - Colorado">CO - Colorado</option><option value="CT - Connecticut">CT - Connecticut</option><option value="DE - Delaware">DE - Delaware</option><option value="DC - District of Columbia">DC - District of Columbia</option><option value="FL - Florida">FL - Florida</option><option value="GA - Georgia">GA - Georgia</option><option value="HI - Hawaii">HI - Hawaii</option><option value="ID - Idaho">ID - Idaho</option><option value="IL - Illinois">IL - Illinois</option><option value="IN - Indiana">IN - Indiana</option><option value="IA - Iowa">IA - Iowa</option><option value="KS - Kansas">KS - Kansas</option><option value="KY - Kentucky">KY - Kentucky</option><option value="LA - Louisiana">LA - Louisiana</option><option value="ME - Maine">ME - Maine</option><option value="MD - Maryland">MD - Maryland</option><option value="MA - Massachusetts">MA - Massachusetts</option><option value="MI - Michigan">MI - Michigan</option><option value="MN - Minnesota">MN - Minnesota</option><option value="MS - Mississippi">MS - Mississippi</option><option value="MO - Missouri">MO - Missouri</option><option value="MT - Montana">MT - Montana</option><option value="NE - Nebraska">NE - Nebraska</option><option value="NV - Nevada">NV - Nevada</option><option value="NH - New Hampshire">NH - New Hampshire</option><option value="NJ - New Jersey">NJ - New Jersey</option><option value="NM - New Mexico">NM - New Mexico</option><option value="NY - New York">NY - New York</option><option value="NC - North Carolina">NC - North Carolina</option><option value="ND - North Dakota">ND - North Dakota</option><option value="OH - Ohio">OH - Ohio</option><option value="OK - Oklahoma">OK - Oklahoma</option><option value="OR - Oregon">OR - Oregon</option><option value="PA - Pennsylvania">PA - Pennsylvania</option><option value="RI - Rhode Island">RI - Rhode Island</option><option value="SC - South Carolina">SC - South Carolina</option><option value="SD - South Dakota">SD - South Dakota</option><option value="TN - Tennessee">TN - Tennessee</option><option value="TX - Texas">TX - Texas</option><option value="UT - Utah">UT - Utah</option><option value="VT - Vermont">VT - Vermont</option><option value="VA - Virginia">VA - Virginia</option><option value="WA - Washington">WA - Washington</option><option value="WV - West Virginia">WV - West Virginia</option><option value="WI - Wisconsin">WI - Wisconsin</option><option value="WY - Wyoming">WY - Wyoming</option> </select></p>
+
+<p><b>Mall - Zip / Postal Code:</b> <a href="#" onclick="openInstructionInNewWindow(mallzipcodeinstruction);">Click here for Zip/Postal Code instructions</a></p>
+
+<p><crowd-input autocomplete="off" id="mallzipcode" name="34. Mall Postal Code" placeholder="Enter Zip / Postal Code" required=""></crowd-input></p>
+
+<p>USPS Validator link to get complete postal code - <a href="https://tools.usps.com/zip-code-lookup.htm?byaddress" target="_blank">Click here</a></p>
+
+<p><b>Mall - Country Code: </b></p>
+
+<p><crowd-input name="35. Mall Country Code" placeholder="Country Code" readonly="readonly" value="${country_code}"></crowd-input></p>
+</div>
+&nbsp;
+
+<div>
+<p><b>Mall - Airport Code:</b> <a href="#" onclick="openInstructionInNewWindow(mallairportdetailsinstruction);">Click here for Airport Code instructions</a></p>
+<b style="color:red">consider closest international airport code to the mall.</b> <crowd-input autocomplete="off" id="airport_code" maxlength="3" name="36. Mall Airport Code" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '');" pattern="[A-Za-z]{3}" placeholder="Enter Airport Code" required=""></crowd-input></div>
+
+<div id="dropdown">
+<p><b>Mall - Time Zone:</b> <a href="#" onclick="openInstructionInNewWindow(malltimezoneinstruction);">Click here for Time Zone instructions</a></p>
+<select autocomplete="off" id="malltimezone" name="37. Mall Timezone" required="" value=""><option value=""></option><option value="America/Chicago">America/Chicago</option><option value="America/New_York">America/New_York</option><option value="America/Anchorage">America/Anchorage</option><option value="America/Los_Angeles">America/Los_Angeles</option><option value="America/Denver">America/Denver</option><option value="America/Phoenix">America/Phoenix</option><option value="Pacific/Honolulu">Pacific/Honolulu</option><option value="America/Puerto_Rico">America/Puerto_Rico</option> </select></div>
+&nbsp;
+
+<div>
+<p><b>Parking - Latitude:</b> <a href="#" onclick="openInstructionInNewWindow(parkinglatloninstruction);">Click here for Latitude instructions</a> <a href="https://drive.google.com/uc?export=view&amp;id=12Voy2bMRwhSc64IWxMiL-md1VaGFgo93" target="_blank">Click here for video instruction</a></p>
+
+<p>Note : Kindly update only numbers with decimal places and do not include any special character&rsquo;s (example: 34.83711922) &ndash; latitude should be positive value.</p>
+<crowd-input autocomplete="off" id="latitude" name="38. Parking Latitude" onkeypress="return blockSpecialChar(event)" placeholder="Enter a Latitude" required=""></crowd-input></div>
+&nbsp;
+
+<div>
+<p><b>Parking - Longitude:</b> <a href="#" onclick="openInstructionInNewWindow(parkinglatloninstruction);">Click here for Longitude instructions</a> <a href="https://drive.google.com/uc?export=view&amp;id=12Voy2bMRwhSc64IWxMiL-md1VaGFgo93" target="_blank">Click here for video instruction</a></p>
+
+<p>Note : Kindly update only numbers with decimal places and do not include any special character&rsquo;s (example: -87.63560343) &ndash; Longitude should be a negative value.</p>
+<crowd-input autocomplete="off" id="prefix1" name="39. Parking Longitude" onkeypress="onKeyDown1(event)" placeholder="Enter a Longitude" required="" type="text"></crowd-input></div>
+&nbsp;
+
+<div>
+<p><b>Mall - Date of collection:</b> <a href="#" onclick="openInstructionInNewWindow(malloperationghoursinstruction);">Click here for Date of collection and operating hours instructions</a></p>
+<crowd-input autocomplete="off" id="malldate" name="40. Mall Hours Collection Date" required="" type="date" value=""></crowd-input></div>
+
+<p><b>Is Mall Timings available in the official website ?</b></p>
+<select autocomplete="off" onchange="mall_timings_1(this)"><option value=""></option><option autocomplete="off" value="yes">Yes</option><option autocomplete="off" value="no">No</option> </select>
+
+<div class="weekdays" id="mall_weekdays" style="display: none;">
+<div class="Sunday">
+<p><b>Hours of operation on Sunday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="mallsundayopens" name="41. Mall Sunday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="mallsundayclose" name="48. Mall Sunday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Monday">
+<p><b>Hours of operation on Monday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="mallmondayopens" name="42. Mall Monday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="mallmondayclose" name="49. Mall Monday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Tuesday">
+<p><b>Hours of operation on Tuesday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="malltuesdayopens" name="43. Mall Tuesday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="malltuesdayclose" name="50. Mall Tuesday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Wednesday">
+<p><b>Hours of operation on Wednesday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="mallwednesdayopens" name="44. Mall Wednesday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="mallwednesdayclose" name="51. Mall Wednesday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Thursday">
+<p><b>Hours of operation on Thursday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="mallthursdayopens" name="45. Mall Thursday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="mallthursdayclose" name="52. Mall Thursday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Friday">
+<p><b>Hours of operation on Friday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="mallfridayopens" name="46. Mall Friday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="mallfridayclose" name="53. Mall Friday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+&nbsp;
+
+<div class="Saturday">
+<p><b>Hours of operation on Saturday:</b></p>
+
+<p>Opens at:</p>
+<select autocomplete="off" id="mallsaturdayopens" name="47. Mall Saturday Open" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select>
+
+<p>Closes at:</p>
+<select autocomplete="off" id="mallsaturdayclose" name="54. Mall Saturday Close" required=""><option value=""></option><option value="CLOSED">CLOSED</option><option value="NA">NA</option><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30  PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option> </select></div>
+</div>
+&nbsp;
+
+<div>&nbsp;
+<div>
+<p><b>Distance between Mall and the Airport is above 20 miles? (Yes/No)</b> <a href="#" onclick="openInstructionInNewWindow(malldistanceinstruction);">Click here for Airport Details and Distance instructions</a></p>
+<select autocomplete="off" name="56. Distance to airport more than 20 miles? Y/N" required=""><option value=""></option><option value="Yes">Yes</option><option value="No">NO</option> </select></div>
+&nbsp;
+
+<div>
+<p><b>Comments:</b></p>
+<crowd-input autocomplete="off" name="57. Comments" placeholder="Enter your comments"></crowd-input></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="storeaddressInstructions" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTIONS FOR FETCHING STORE ADDRESS</b></p>
+
+<p><b>1)</b> Go to official store website provided as part of inflow and capture the store&#39;s address for the respective Mall, state and city. (Important: Address information should be collected from official store website and not from the Google search results.)</p>
+
+<p><b>2)</b> Go to retailer&rsquo;s official website and look for &ldquo;Store Locator&rdquo; or &ldquo;Store Directory&rdquo;. Please ensure the location is United States.</p>
+
+<p style="color: red;"><b>Note- The Example and navigation provided below (in screenshots) are using a website https://stores.claires.com/us/. Depending on the stores you receive the navigation through the website would vary.</b></p>
+
+<p><b>Example: </b> As highlighted below in yellow &gt; Please select United Sates as location and Find a Store option. The option can vary depending on the website. Please go through the different website page to locate the store for the mall and zip code provided in the inflow.</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1WZRdzvEv6544pfOG0gF61NWdpr7GKce3" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>3) Enter the City, State OR Zip code of the mall provided in the inflow . You can browse through state option and select the right city and Mall.</p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1IM3nWmJiCRlIVmk_jne6oW7QOlzs7MFS" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>4) Select the correct store location and find the store address (You may have to look through multiple pages on the store&rsquo;s website to find the address), make sure the mall name, city, state and zipcode in the result matches with the provided inflow.</p>
+
+<p>For the below example let&rsquo;s say the inflow was State <b>&gt;</b> Alaska , City <b>&gt;</b> ANCHORAGE , Mall <b>&gt;</b> 5TH AVENUE MALL.</p>
+
+<p>&bull; Once you find the right Mall click on More details option</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1lAFOCzI0_6HqQu-eoPz-wk5W8mpccLDi" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p><b>Filling Address line 1 &amp; 2: (Incorrect capturing of Address line 1 and 2 would result in lower quality) </b></p>
+
+<p>a) Capture street number &amp; name in Address line 1 field. In the above example for 5th Avenue Mall- 320 W 5TH Avenue would be captured in Address line 1</p>
+
+<p>b) Capture the suite number or store number or building number in &lsquo;address line 2&rsquo;.In the above example for 5th Avenue Mall &ldquo;#148&rdquo; would be in Address line 2. If no suite number is provided, then &lsquo;address line 2&rsquo; can be left blank.</p>
+
+<p><b>Note:</b> There is no need of capturing City/ State / Zipcode in Address line 1 &amp; 2.</p>
+
+<p><b style="color: red;">While collecting the Address lines from official store website &quot; Capturing of city name , state name and zipcode is not required&quot;, collect only the street names in address line 1 and suite numbers in &quot;address line 2&quot;. For ex (&quot;6800 OXON HILL ROAD SPC 855&quot; , consider &quot;6800 OXON HILL ROAD - address line 1&quot; &amp; &quot;SPC 855 - address line 2&quot; and address line 3 can be left blank. In few cases the address line 2 will be like this &quot;SPC 800&quot;/ &quot;STE E&quot;/&quot;BLDG 10&quot;/&quot;Unit 20&quot;, also do not consider the range number which is provided before the street name as &quot;suite number&quot;. </b></p>
+
+<p><b>More examples on how to capture address-</b></p>
+
+<p>1) 6909 N. LOOP 1604 EAST #2065<br />
+SAN ANTONIO, TX 78247<br />
+Here Address line 1- 6909 N. LOOP 1604 EAST , Address line 2 - #2065</p>
+
+<p>2) 1213 E TRINITY MILLS RD RM 700<br />
+CARROLLTON, TX 75006<br />
+Here Address line 1- 1213 E TRINITY MILLS RD , Address line 2 - RM700</p>
+</div>
+</div>
+
+<div id="storephonenumberinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTIONS FOR FETCHING PHONE NUMBER</b></p>
+
+<p style="color: red;">Note: Do not copy past values for phone number as it results in incorrect format in output and would result in rejecting of HIT. Please type the phone number directly in the output box.</p>
+
+<p><b>Filling Phone Number -</b> Use the store&rsquo;s official website to capture the store phone number and make sure the phone number is in the mentioned format <b>&ldquo;(000) 000-0000&rdquo;. </b></p>
+
+<div id="storezipcodeinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTIONS FOR FETCHING ZIPCODE</b></p>
+
+<p><b>Postal Code - </b> Zip code will be in a (5-4) digit format. Where the first 5 digits will be available in the store website and the rest 4 digit to be fetched using the USPS Validator link mentioned above and follow the below sub step:</p>
+&nbsp;
+
+<p><b>USPS Validator link - <a href="https://tools.usps.com/zip-code-lookup.htm?byaddress" target="_blank">Click here</a> </b></p>
+&nbsp;
+
+<p>While fetching zipcode through USPS validator make sure to use the store name in &quot;company blank&quot; (For Ex: &ldquo; Claire&rsquo;s&rdquo; in &ldquo;company name&rdquo; , address line 1 in the &quot;Street Address&quot; (for ex: &ldquo;6800 OXON HILL ROAD&rdquo;) and suite numbers to be used in &quot;suite/apt/other&quot; (For ex: &ldquo;SPC 855&rdquo;, make sure to use the suite numbers to fetch the zipcode, if the suite number is provided in the website) followed by city,state and 5digit zipcode&rdquo;.</p>
+
+<p><b style="color: red;">Note- Any miss on inputting store name in &ldquo;Company&rdquo; , Address line 1 and 2 for &ldquo;Street address&rdquo; &amp;&rdquo; suite/apt/other&rdquo; respectively would result in incorrect postal code. The address result from USPS validator should match with the address you input for the stores.</b></p>
+
+<p>In the company name blank (use the store name as provided in the Input field including special characters), followed by address line 1 and line 2, state, city and first 5 digit zipcode (taken from the store website). Refer the below attached image.</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1SM9RhTxDCGlHxbEj8xLEg5i4-72xgcWp" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p style="color:red"><b>Note - If you get multiple results, make sure you select the address that most closely matches the address that was entered. Refer the below attached image. (In specific capturing the result with the store/brand name followed by the entered address will be apt)</b></p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=16Jnqfy7Fx4pMpeKqxZnTvOYHJj6JFv0h" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p><b style="color:red">Add the complete zip code (&ldquo;5-4&rdquo; Total 9 digit) in Postal Code output field.</b></p>
+
+<p><b style="color:red">If you find any error popup while fetching the 4-digit zip code, you can just enter the available 5-digit zip code alone in the output template (Ex: &ldquo;19406-&ldquo;).</b></p>
+
+<p style="color: red;"><b>While fetching zipcode through USPS validator make sure to use the store name in &quot;company blank&quot;, address line 1 in the &quot;street blank&quot; and suite numbers to be used in &quot;suite/apt blank&quot; (make sure to use the suite numbers to fetch the zipcode, if the suite number is provided in the website) followed by city,state and 5digit zipcode. </b></p>
+
+<p><b style="color:red">If the zipcode from the input and store website differs, Kindly take the five digit zipcode from the Store website .</b></p>
+
+<p style="color: red;"><b>There is a possibility of similar mall names in 2 different cities, make sure to collect the exact details as per the input by considering the &quot;zipcode&quot;. </b></p>
+
+<p><b>Examples of Various scenario&rsquo;s of zipcode collection:</b></p>
+
+<p>1. 205 WEST FM 1382 , SPC #617<br />
+CEDAR HILL TX ,75104</p>
+
+<p>Enter the values as shown in the below image.</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=18cbLxxyCMZqCa9rEduC4ZsyVUBpgCCC9" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p><b style="color:red">( Note :Some times you might get various range , In that case choose the range which is similar to the entry.)</b></p>
+
+<p>For example : View the below image</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1NMIXkJBH2HCXmlDug_fiK5Xbz5FxX0Rn" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>2. 800 HWY 400 SOUTH SPC 755<br />
+DAWSONVILLE, GA 30534</p>
+
+<p>In these cases , you can expand the address to fetch the zipcode . Such as &ldquo;800 HWY 400 SOUTH&rdquo; into &ldquo;800 Highway 400 South&rdquo;. Kindly look into the below image for more clarity.</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1-8_HnNFj65LUPrpEvF-jTjJQyolUIHvb" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>Which will fetch the output as seen below,</p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1Kxtxlarja7-IvWq9pwflgOLYa4SnOKtR" style="width: 700px; height: 400px" /><br />
+&nbsp;</div>
+
+<div id="storetimezoneinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTIONS FOR FETCHING TIME ZONE</b></p>
+
+<p>a) Google &ldquo;Time zone for City and State&rdquo; of the store. Example &ldquo;Time Zone for Westminster IN Maryland&rdquo;</p>
+
+<p>b) Once you have the google result, use the result to find the time zone in the below provided table.</p>
+
+<table>
+	<tbody>
+		<tr>
+			<th><b>Google Result</b></th>
+			<th><b>Time Zone</b></th>
+		</tr>
+		<tr>
+			<td>Central Standard Time /Central Time Zone/Central Daylight Time</td>
+			<td>America/Chicago</td>
+		</tr>
+		<tr>
+			<td>Eastern Standard Time/ Eastern Daylight Time</td>
+			<td>America/New_York</td>
+		</tr>
+		<tr>
+			<td>Alaska Standard Time</td>
+			<td>America/Anchorage</td>
+		</tr>
+		<tr>
+			<td>Pacific Standard Time/Pacific Daylight Time</td>
+			<td>America/Los_Angeles</td>
+		</tr>
+		<tr>
+			<td>Mountain Standard Time/ Mountain Daylight Time</td>
+			<td>America/Denver</td>
+		</tr>
+	</tbody>
+</table>
+&nbsp;
+
+<p>c) For example &ndash; Time zone for City King of Prussia and State PA is <b>&ldquo;Eastern&rdquo;</b> time zone in google.</p>
+
+<p>d) Find for <b>&quot;Eastern&quot;</b> in the table above and collect the results. (Ex: When you look for Eastern in the table, collect the available time zone which is &ldquo;America/Newyork&rdquo;, Select &quot;America/Newyork&quot; from the <b>dropdown</b> options.</p>
+
+<p style="color: red;"><b>Note - If the store is in the state Arizona (AZ) the time zone is always &quot;America/Phoenix&quot;, for store in the state Hawaii (HI) the time zone is always &ldquo;Pacific/Honolulu&rdquo; and for store in the state Puerto Rico (PR) the time zone is always &ldquo;America/Puerto_Rico&rdquo;.</b></p>
+</div>
+
+<div id="storelatloninstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S TO FETCH LATITUDE AND LONGITUDE &ndash; STORE</b></p>
+
+<p>1) Through the Google maps, with the help of the Store&rsquo;s name, address, state and city fetch the latitude and longitude. Refer the below image.</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1EnaTuH-zSMBiBqSr7x8xObSE6dmdHtJp" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>Click on &ldquo;Maps&rdquo; (highlighted in the image above)</p>
+&nbsp;<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1eEhBt7Z2vD1pJ0BKI4cDYAN6-nTo2TqC" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>Now zoom in the pinned location to the maximum -&gt; right click on the pin and take the latitude &amp; longitude (highlighted in the image above). Positive value refers &ldquo;Latitude&rdquo; and the negative value refers to the &ldquo;Longitude&rdquo; for reference.</p>
+
+<p>Also please make sure the address matches with the one given in official website.</p>
+</div>
+<!--  --></div>
+
+<div id="storeoperatinghoursinstructions" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTIONS FOR COLLECTION OF DATE AND OPERATING HOUR&rsquo;S OF STORE</b></p>
+
+<p>a) From the official store website and capture the store&#39;s operating hours for each day of the week in AM/ PM format.</p>
+
+<p><b style="color: red;">Note : If the timings are mentioned as &ldquo;Closed&rdquo; or &ldquo;NA&rdquo; select the same from the dropdown.</b></p>
+
+<p>b) Hours are generally listed under &ldquo;Hours&rdquo; sections. If not, Hours can also be found in either About Us or Contact Us page.</p>
+
+<p>c) Also, sometimes store websites surface two sets of operating hours: hours this week and Regular hours. When you see multiple sets of hours, you should use Regular Hours.</p>
+
+<p>d) Collect the day wise operating hours data into the output field below . Also include &ldquo;Date of collection&rdquo; (Date on which the operating hours are collected), before hours are listed.</p>
+</div>
+
+<div id="malladdressinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION TO FETCH MALL ADDRESS</b></p>
+
+<p><b>1.</b> Navigate to official website and go to either <b>About Us or Contact Us</b> page to get the address of the mall (You may have to look through multiple pages on the mall website to find the address if its&rsquo;s not listed under About Us or Contact Us pages)..</p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1wQS4LnTJl8YBvqYoflZ4W7qi78lio8k7" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p><b>Filling Address line 1 ( Incorrect capturing of Address line 1 and 2 would result in lower quality) </b></p>
+
+<p>a) Capture street number &amp; name in Address line 1 field. In the above example for King of Prussia- 160 N Gulph Rd, King of Prussia would be captured in Address line 1</p>
+
+<p>b) Capture the suite number or store number or building number in &lsquo;address line 2&rsquo;.In the above example there is no suite/building/store number hence Address line 2 be left blank. If no suite number is provided, then &lsquo;address line 2&rsquo; can be left blank.</p>
+
+<p>There is no need of capturing City/ State / Zipcode in Address line 1 &amp; 2.</p>
+
+<p><b style="color: red;">While collecting the Address lines from official store website &quot; Capturing of city name , state name and zipcode is not required&quot;, collect only the street names in address line 1 and suite numbers in &quot;address line 2&quot;. For ex (&quot;6800 OXON HILL ROAD SPC 855&quot; , consider &quot;6800 OXON HILL ROAD - address line 1&quot; &amp; &quot;SPC 855 - address line 2&quot; and address line 3 can be left blank. In few cases the address line 2 will be like this &quot;SPC 800&quot;/ &quot;STE E&quot;/&quot;BLDG 10&quot;/&quot;Unit 20&quot;, also do not consider the range number which is provided before the street name as &quot;suite number&quot;.</b></p>
+
+<p><b>More examples on how to capture address-</b></p>
+
+<p>1) 6909 N. LOOP 1604 EAST #2065<br />
+SAN ANTONIO, TX 78247<br />
+Here Address line 1- 6909 N. LOOP 1604 EAST , Address line 2 - #2065</p>
+
+<p>2) 1213 E TRINITY MILLS RD RM 700<br />
+CARROLLTON, TX 75006<br />
+Here Address line 1- 1213 E TRINITY MILLS RD , Address line 2 - RM700</p>
+</div>
+
+<div id="mallzipcodeinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S TO FETCH ZIPCODE OF MALL</b></p>
+
+<p><b>Postal Code:</b></p>
+
+<p>Zip code will be in a (5-4) digit format. Where the first 5 digits will be available in the store website and the rest 4 digit to be fetched using the USPS Validator link mentioned above and follow the below sub step:</p>
+
+<p><b>USPS Validator link - <a href="https://tools.usps.com/zip-code-lookup.htm?byaddress" target="_blank">Click here</a></b></p>
+
+<p>1. While fetching zipcode through USPS validator make sure to use the Mall name in &quot;company blank&quot; (For Ex: &ldquo;St. Charles Towne Center&rdquo; in &ldquo;company name&rdquo; , address line 1 in the &quot;Street Address&quot; (for ex: &ldquo;11110 MALL CIRCLE&rdquo;) and suite numbers to be used in &quot;suite/apt/other&quot; (For ex: &ldquo;SECT G&rdquo;, make sure to use the suite numbers to fetch the zipcode, if the suite number is provided in the website) followed by city, state and 5-digit zipcode&rdquo;</p>
+
+<p><b style="color:red">Note- Any miss on inputting store name in &ldquo;Company&rdquo; , Address line 1 and 2 for &ldquo;Street address&rdquo; &amp;&rdquo; suite/apt/other&rdquo; respectively would result in incorrect postal code. The address result from USPS validator should match with the address you input for the stores.</b></p>
+&nbsp;
+
+<p>In the company name blank (<b style="color: red;">use the Mall name from the official Mall website</b>), followed by address line 1 and line 2, state, city and first 5 digit zipcode (taken from the Mall website). Refer the below attached image</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1aLcx6js2ZkzX-Ifp8Hd_A56B1u7q5zJa" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p style="color:red"><b>Note - If you get multiple results, make sure you select the address that most closely matches the address that was entered. Refer the below attached image. </b></p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1s7475eSxn7LqwQITr8AiyxDt5DH1IJa8" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p><b style="color:red">Add the complete zip code (&ldquo;5-4&rdquo; Total 9 digit) in Postal Code output field </b></p>
+
+<p><b style="color:red">If you find any error popup while fetching the 4-digit zip code, you can just enter the available 5-digit zip code alone in the output template (Ex: &ldquo;19406-&ldquo;).</b></p>
+</div>
+
+<div id="mallairportdetailsinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S TO FETCH AIRPORT CODE DETAILS</b></p>
+
+<p>Find the nearest major airport to the mall.</p>
+
+<p>Do this by searching the city and state for the mentioned Mall in google and click on <a href="https://www.travelmath.com/nearest-airport/." target="_blank"><b>https://www.travelmath.com/nearest-airport/.</b></a></p>
+
+<p>a) The result will be a three-letter code.</p>
+
+<p>b) Please consider only closest<b style="color:red">International Airports</b> and Sunports. For few cases the international airports will also be available in the Local and regional airport list which can also be considered.</p>
+
+<p style="color:red">Important : Do not consider intercontinental, regional, domestic and other local airports.</p>
+
+<p>c) For example, the major airport in Seattle, WA is SEA. The major airport in Detroit, MI is DTW.)</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1OCQBr6IIyClUQVv6sBtJCysHV4sC-qQe" style="width: 700px; height: 400px" /></div>
+
+<div id="malltimezoneinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S TO FILLING TIME ZONE DETAILS</b></p>
+
+<p><b>Filling Time Zone - </b></p>
+
+<p>a) Google &ldquo;Time zone for City and State&rdquo; of the store. Example &ldquo;Time Zone for Westminster IN Maryland&rdquo;</p>
+
+<p>b) Once you have the google result, use the result to find the time zone in the below provided table.</p>
+
+<table>
+	<tbody>
+		<tr>
+			<th><b>Google Result</b></th>
+			<th><b>Time Zone</b></th>
+		</tr>
+		<tr>
+			<td>Central Standard Time /Central Time Zone/Central Daylight Time</td>
+			<td>America/Chicago</td>
+		</tr>
+		<tr>
+			<td>Eastern Standard Time/ Eastern Daylight Time</td>
+			<td>America/New_York</td>
+		</tr>
+		<tr>
+			<td>Alaska Standard Time</td>
+			<td>America/Anchorage</td>
+		</tr>
+		<tr>
+			<td>Pacific Standard Time/Pacific Daylight Time</td>
+			<td>America/Los_Angeles</td>
+		</tr>
+		<tr>
+			<td>Mountain Standard Time/ Mountain Daylight Time</td>
+			<td>America/Denver</td>
+		</tr>
+	</tbody>
+</table>
+&nbsp;
+
+<p>c) For example &ndash; Time zone for City King of Prussia and State PA is <b>&ldquo;Eastern&rdquo;</b> time zone in google.</p>
+
+<p>d) Find for <b>&quot;Eastern&quot;</b> in the table above and collect the results. (Ex: When you look for Eastern in the table, collect the available time zone which is &ldquo;America/Newyork&rdquo;, Select &quot;America/Newyork&quot; from the <a class="scrollLink" href="#dropdown"><b>dropdown</b></a> options.</p>
+
+<p style="color: red;"><b>Note - If the store is in the state Arizona (AZ) the time zone is always &quot;America/Phoenix&quot;, for store in the state Hawaii (HI) the time zone is always &ldquo;Pacific/Honolulu&rdquo; and for store in the state Puerto Rico (PR) the time zone is always &ldquo;America/Puerto_Rico&rdquo;.</b></p>
+</div>
+
+<div id="parkinglatloninstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S TO FETCH LATITUDE AND LONGITUDE &ndash; PARKING</b></p>
+
+<p>1) Use google search bar and type the store name followed by store address. Then click on &ldquo;MAPS&rdquo;.</p>
+
+<p>2) Move the cursor to &ldquo;layers&rdquo; -&gt; click more and select satellite view.</p>
+
+<p>3) Now zoom in where the store is located. You will find parking spaces like shown in the image.</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1gSREPfhdTCDw2-YAoD-kdqsKSyMz-KNP" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>In the image attached above, we have parking on all 3 sides of the store. In such cases, please make sure to consider the parking which is at the store entrance only.</p>
+&nbsp;
+
+<p>To identify the store entrance, use street view i.e click on the yellow icon in the bottom right corner of the map. (Circled it in the image above)</p>
+&nbsp;
+
+<p>4) Now click and check anywhere near staples. You&rsquo;ll find the store like displayed in the image below.</p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1XhB8wz1qrXSpPu7twuklI4KVTRUeFaU_" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>After confirming this, exit the street view, zoom in to the parking near the store entrance -&gt; right click -&gt; copy the latitude and longitude.</p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1PYrk2kTiTub3QiTDsHRbSqkkNRuHrZcR" style="width: 700px; height: 400px" /><br />
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1B8UBf_ycIX55p1IbDu58BUiHjsH8Zc0N" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>5) In certain scenarios the store will be located inside the mall, in such cases consider the parking that is located near mall entrance. Attaching the images below for your reference.</p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1ggtoNhsfzJId2J7F8go6XFbJ0-f2_YY7" style="width: 700px; height: 400px" /><br />
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1Un9sH9spWwFGGDBE-7Llr1pR0StYjoXh" style="width: 700px; height: 400px" /><br />
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1rwSc51pjdhMJhVjZJGsSjqhqhcb_7AKv" style="width: 700px; height: 400px" /><br />
+&nbsp;</div>
+</div>
+
+<div id="malloperationghoursinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S TO UPDATE DATE &amp; TIMINGS OF THE MALL</b></p>
+
+<p>a) From the official store website and capture the store&#39;s operating hours for each day of the week in AM/ PM format.</p>
+
+<p style="color:red">Note : If the timings are mentioned as &ldquo;Closed&rdquo; or &ldquo;NA&rdquo; select the same from the dropdown.</p>
+
+<p>b) Hours are generally listed under &ldquo;Hours&rdquo; sections. If not, Hours can also be found in either About Us or Contact Us page.</p>
+
+<p>c) Also, sometimes store websites surface two sets of operating hours: hours this week and Regular hours. When you see multiple sets of hours, you should use <b>Regular Hours.</b></p>
+
+<p>d) Collect the day wise operating hours data into the output field below . Also include &ldquo;Date of collection&rdquo; (Date on which the operating hours are collected), before hours are listed.</p>
+</div>
+
+<div id="malldistanceinstruction" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S TO FETCH THE DISTANCE BETWEEN NEARBY INTERNATIONAL AIRPORT TO MALL</b></p>
+
+<p>a) Please check that the distance from the nearest International Airport or Sunport to the Mall is less than 20 miles.</p>
+
+<p style="color:red">( Note : If the mall&rsquo;s official website is not available , kindly use the store Name , Address , state and city to estimate the distance )</p>
+
+<p>b) For distance verification, go to google maps click on the directions symbol and enter the mall&rsquo;s address and the fetched 3-digit code or the <b>airport name</b> which will provide the exact distance.</p>
+
+<p style="color:red">( Note : If the mall&rsquo;s official website is not available , kindly use the store Name , Address , state and city to estimate the distance )</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=11XLPhENV3VJAYyFuznhryke1P-ufX4Jq" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>c) If it is more than 20 miles just update the 3-digit code in <b>Airport Code output field</b> and select &lsquo; YES&rsquo; for &ldquo; The distance between the nearest international airport and the Mall is more than 20 miles&rdquo;)</p>
+
+<p>d) If it is within 20 miles and exactly 20 miles, just update the 3-digit code alone and select &lsquo; NO&rsquo; for &ldquo; The distance between the nearest international airport and the Mall is more than 20 miles&rdquo;)</p>
+&nbsp;</div>
+
+<div id="mallnamenotspecified" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S FOR FETCHING MALL NAME</b></p>
+Fetching Mall Name : <b style="color:red">Please go through the below scenarios to fetch the mall details before starting with the HIT</b><br />
+&nbsp;
+<p><b>1</b>. If the mall name is not specified (for ex: <b>&quot;Birmingham, AL&quot; - &quot;Storename, City , State&quot;</b> ) &ndash; follow the below instructions.</p>
+
+<p><b>To fetch Mall name:</b></p>
+
+<p><b>Scenario 1 :</b></p>
+
+<p>Copy paste the store name, city and state name from the inflow and search in google, please refer the below image.</p>
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=1r5j4-v18expIdM4KFJBlSS3nvD8kM29a" style="width: 700px; height: 400px" /><br />
+<br />
+&nbsp;
+<p><b>If there is mall name available in &ldquo; Located at : &rdquo; and official website of mall is also available, then follow the instructions mentioned below. </b></p>
+
+<p style="color: red;"><b>IMPORTANT NOTE : Ensure that store is within the mall building/premises by comparing the distance between the mall and store. Refer the images below for better understanding. </b></p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1_qawk9A1t1iMeQFPrm-Z50atkeIaT8gg" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p><b>Scenario 1(A) :</b></p>
+
+<p>From the image 1 and 2 attached above , we can understand that the store is Located in : The Summit Birmingham and when compared the distance between the mall address and the store address in g-maps, it is clear that the store is located within the mall&rsquo;s premises. Hence select the result as &#39;Yes&#39; from the dropdown under <b style="color: red;">&lsquo;Is Official Mall Website Available&rsquo;</b>. Update the mall name, update the mall website link to the text box and then collect the rest of the data&rsquo;s from the Mall&rsquo;s official website.</p>
+<br />
+<br />
+<img src="https://drive.google.com/uc?export=view&amp;id=18YMy6XlUvC7ME3snjc3yic9w8PZTMwJN" style="width: 700px; height: 400px" /><br />
+<br />
+&nbsp;
+<p><b>Scenario 1(B) :</b></p>
+
+<p>From the image 3 attached above, when comparing the store address and mall address in g-maps. we shall understand that the store and the mall are not in the same premises. In such cases, we will consider the store address which is, street name @ city as mall&rsquo;s name (excluding ranges and suite/building numbers).</p>
+
+<p><b>For example</b> if the store address is 1310 Tingle Cir E Ste K , Mobile, AL 36606</p>
+
+<p>Then we will consider Tingle Cir E @ Mobile as mall name.</p>
+
+<p><a href="https://drive.google.com/file/d/1jS_pVzBORnFwOAn5rdue-5oSHr6mGG9r/preview" target="_blank">Please find the reference video</a></p>
+
+<p><b>Scenario 2 :</b></p>
+
+<p>If there is mall name available in &ldquo; Located at : &ldquo; but official mall website is not available then click on the mall&rsquo;s name.</p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1ScI-nxu1Zd73EYS5ogLe3m5q7wr40Xba" style="width: 700px; height: 400px" /><br />
+<br />
+<br />
+&nbsp;
+<div><img src="https://drive.google.com/uc?export=view&amp;id=1wImyYJihdv-RgyexTs7wpneWnQklQl-4" style="width: 700px; height: 400px" /></div>
+&nbsp;
+
+<div>
+<p>You will get a page like image 2. Click on &ldquo;Maps&rdquo; and follow Scenario 1(A) and Scenario1(B) as mentioned above.</p>
+</div>
+
+<p><a href="https://drive.google.com/file/d/1aky-A3lKQY9Fe2Z29aGncbxh7wYXOCOL/preview" target="_blank">Please find the reference video</a></p>
+
+<p><b>2(A)</b> Hence select the result as &#39;No&#39; from the dropdown under &lsquo;Is Official Mall Website Available&rsquo;. Update the Mall name based on the scenario, rest of the details will be auto populated as per the information fed under store, for the given segments:</p>
+
+<p>i) Mall Address ii) Mall City iii) Mall - State Or Region Abbreviation iv) Mall - Zip / Postal Code v) Mall - Country Code vi) Hours of operation</p>
+
+<p>Note : We need to manually fill the details from Mall- Airport code onwards following their respective instructions</p>
+
+<p><b>Scenario 3:</b></p>
+
+<p>If no mall name is available in located at , we&rsquo;ll go with store address line followed by city.</p>
+<img src="https://drive.google.com/uc?export=view&amp;id=1OE95JEvPDUqDa2DsuMAkM1Wsmm82CBba" style="width: 700px; height: 400px" /><br />
+&nbsp;
+<p>For example in the image attached above there is no &ldquo;located at&rdquo;.</p>
+
+<p>As the store address is <b style="color:red;">11725</b> <b style="color:orange">Berry Rd, Waldorf,</b> <b style="color:red">MD 20603 </b></p>
+
+<p>We will consider <b style="color:orange"> Berry Rd @ Waldorf </b> as mall name.</p>
+
+<p>Follow the steps as mentioned in 2(A) for data collection.</p>
+
+<p>&nbsp;</p>
+
+<p><a href="https://drive.google.com/file/d/1dxLDkEs2-yAd7H9CyUikQfuN6RyTDCJX/preview" target="_blank">Please find the reference video</a></p>
+</div>
+
+<div id="mallnamespecified" style="display: none;">
+<div class="container">
+<p style="text-align: center;"><b>INSTRUCTION&rsquo;S FOR UPDATING MALL NAME</b></p>
+
+<p><b>1.</b> If there is a mall name available in the inflow, but it does not have an official website, please follow the below instructions &ndash;</p>
+
+<p>(a). Select the result as &#39;No&#39; from the dropdown under <i style="color:red">&lsquo;Is Official Mall Website Available&rsquo; </i> all the details will be auto populated as per the information fed under store, for the given segments :</p>
+
+<p><b>i) Mall Address ii) Mall City iii) Mall - State Or Region Abbreviation iv) Mall - Zip / Postal Code v) Mall - Country Code vi) Hours of operation</b></p>
+
+<p style="color: red;">Note : We need to manually fill the details from Mall- Airport code onwards following their respective instructions</p>
+&nbsp;
+
+<p><b>2.</b> If there is a mall name available in the inflow, but there is an official website available, please follow the below instructions</p>
+
+<p>(a) Select the result as &lsquo;Yes&rsquo; from the dropdown under <i style="color:red">&lsquo;Is Official Mall Website Available&rsquo; </i> , then update the mall website link in the text box that appears upon selecting yes.</p>
+
+<p>Find the official mall website and capture the mall&#39;s address. You can use Google to search for the official website with Mall, City, State name.</p>
+
+<p><b>(Important: Address information should be collected from official mall website and not from the Google search results).</b></p>
+</div>
+
+<div id="phonenumberinstruction" style="display: none;">
+<div class="container">
+<p><b>INSTRUCTIONS FOR FETCHING PHONE NUMBER</b></p>
+
+<p><b>Filling Phone Number -</b> Use the store&rsquo;s official website to capture the store phone number and make sure the phone number is in the mentioned format <b>&ldquo;(000) 000-0000&rdquo;. </b></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</crowd-form>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
